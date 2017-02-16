@@ -1,0 +1,15 @@
+<div class="col-sm-12 well">
+    <div class="col-sm-4 ">
+        <div class="container slider" ng-show="showImage">
+            <!-- <img ng-show="showImage" class="img-responsive" ng-src="{{entry.content.nitf.body['body.content'].media[0]['media-reference'][1]._source}}"alt=""> -->
+            <img  class="img-responsive slide slide-animation" ng-swipe-right="nextSlide()" ng-swipe-left="prevSlide()" ng-src="{{currentSlide._source}}">
+        </div>
+        <a class="arrow prev" href="" ng-click="nextSlide()"></a>
+        <a class="arrow next" href="" ng-click="prevSlide()"></a>
+    </div>
+    <p ng-show="showHeadLine" style="text-align:left;font-size:18px"> <b>{{entry.ContentMetadata.HeadLine["__text"]}}</b> </p>
+    <p ng-show="showSummary" style="text-align:left; color:gray">{{entry.summary}}</p>
+    <div ng-show="showStory" style="text-align:left;overflow-y:scroll;max-height:180px">
+        <p ng-bind-html="entry.stories"></p>
+    </div>
+</div>
